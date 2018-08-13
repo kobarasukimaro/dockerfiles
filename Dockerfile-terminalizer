@@ -2,16 +2,10 @@ FROM centos:centos7
 
 MAINTAINER kobarasukimaro
 
-RUN groupadd -r centos && useradd -r -g centos centos
+#RUN groupadd -r centos && useradd -r -g centos centos
 RUN yum update
 RUN yum -y groupinstall "Development Tools"
-RUN gcc -v
-RUN make -v
 
-RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs
-RUN npm -v
-RUN npm install
-RUN ls -l /
-RUN ls -la /root/
-RUN npm install -g terminalizer
+RUN npm install -g terminalizer --unsafe
